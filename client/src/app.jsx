@@ -1,5 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
+
+const StyledTitle = styled.span`
+  font-family: Nunito Sans;
+  font-weight: 700;
+  font-size: 2.4rem;
+`;
 
 class App extends React.Component {
   constructor(props) {
@@ -10,7 +17,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>hello world</div>
+      <StyledTitle>Similar to this Product</StyledTitle>
     )
   }
 };
