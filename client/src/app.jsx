@@ -2,10 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
-const StyledTitle = styled.span`
+const StyledTitle = styled.h2`
   font-family: Nunito Sans;
   font-weight: 700;
   font-size: 2.4rem;
+`;
+
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 class App extends React.Component {
@@ -17,7 +22,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <StyledTitle>Similar to this Product</StyledTitle>
+      <StyledContainer>
+        <StyledTitle>Similar to this Product</StyledTitle>
+        <div>SLIDER IMAGES CONTAINER GOES HERE</div>
+      </StyledContainer>
     )
   }
 };
