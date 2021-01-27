@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SliderComponent from './components/SliderComponent.jsx';
 import styled from 'styled-components';
 
 const StyledTitle = styled.h2`
@@ -8,9 +9,16 @@ const StyledTitle = styled.h2`
   font-size: 2.4rem;
 `;
 
-const StyledContainer = styled.div`
+const ParentContainer = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const SliderContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  padding-left: 4rem;
+  padding-right: 4rem;
 `;
 
 class App extends React.Component {
@@ -22,10 +30,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <StyledContainer>
+      <ParentContainer>
         <StyledTitle>Similar to this Product</StyledTitle>
-        <div>SLIDER IMAGES CONTAINER GOES HERE</div>
-      </StyledContainer>
+        <SliderContainer>
+          <SliderComponent/>
+        </SliderContainer>
+      </ParentContainer>
     )
   }
 };
