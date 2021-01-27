@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SliderComponent from './components/SliderComponent.jsx';
+import SliderCard from './components/SliderCard.jsx';
 import styled from 'styled-components';
 
 const StyledTitle = styled.h2`
@@ -19,6 +19,12 @@ const SliderContainer = styled.div`
   justify-content: space-around;
   padding-left: 4rem;
   padding-right: 4rem;
+  background-color: transparent;
+  position: relative;
+  font-family: Nunito Sans;
+  font-weight: 400;
+  font-size: 1.2rem;
+  height: auto;
 `;
 
 class App extends React.Component {
@@ -33,7 +39,11 @@ class App extends React.Component {
       <ParentContainer>
         <StyledTitle>Similar to this Product</StyledTitle>
         <SliderContainer>
-          <SliderComponent/>
+          <SliderCard/>
+          <SliderCard/>
+          <SliderCard/>
+          <SliderCard/>
+          <SliderCard/>
         </SliderContainer>
       </ParentContainer>
     )
