@@ -9,7 +9,7 @@ const StyledTitle = styled.h2`
   font-size: 2.4rem;
 `;
 
-const ParentContainer = styled.div`
+const SimilarProductsContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -27,7 +27,7 @@ const SliderContainer = styled.div`
   height: auto;
 `;
 
-class App extends React.Component {
+class SimilarProductsComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {}
@@ -36,7 +36,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <ParentContainer>
+      <SimilarProductsContainer>
         <StyledTitle>Similar to this Product</StyledTitle>
         <SliderContainer>
           <SliderCard/>
@@ -45,10 +45,10 @@ class App extends React.Component {
           <SliderCard/>
           <SliderCard/>
         </SliderContainer>
-      </ParentContainer>
+      </SimilarProductsContainer>
     )
   }
 };
 
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<SimilarProductsComponent />, document.getElementById('similar'));
