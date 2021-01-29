@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'development',
-  entry: __dirname + '/client/src/app.jsx',
+  entry: __dirname + '/client/src/SimilarProductsComponent.jsx',
   module: {
     rules: [
       {
@@ -16,7 +16,7 @@ module.exports = {
     ]
   },
    output: {
-    filename: 'bundle.js',
+    filename: 'similarBundle.js',
     path: __dirname + '/public/dist'
   }
 };
