@@ -43,4 +43,10 @@ db.saveCollection = async (incomingEntries) => {
   db.close();
 }
 
+db.getAssociatedProductNums = async (incomingProductNum) => {
+  const entireRecord = await Product.find({productNumber: incomingProductNum}).exec();
+  const {associatedProductNumbers} = entireRecord[0];
+  return associatedProductNumbers;
+}
+
 module.exports = db;

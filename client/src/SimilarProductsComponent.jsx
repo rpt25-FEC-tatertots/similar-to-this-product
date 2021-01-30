@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SliderCard from './components/SliderCard.jsx';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const StyledTitle = styled.h2`
   font-family: Nunito Sans;
@@ -33,6 +34,15 @@ class SimilarProductsComponent extends React.Component {
     this.state = {}
   }
 
+  componentDidMount() {
+    axios.get(`/similar?product_id=${2}`)
+      .then(response => {
+        console.log('RESPONSE FROM SERVER ON THE CLIENT: ', response.data)
+      })
+      .catch(err => {
+        console.log('ERROR ON THE CLIENT AFTER GET REQUEST: ', err)
+      })
+  }
 
   render() {
     return (
