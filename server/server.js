@@ -1,5 +1,6 @@
 const express = require('express');
 const db = require('../database/schema.js');
+const mockData = require('../mockData.js');
 const axios = require('axios');
 
 const app = express();
@@ -14,18 +15,21 @@ app.get('/similar', async (req, res) => {
   try {
     const associatedProductNumbers = await db.getAssociatedProductNums(product_id)
     //for each productNumber in the array, it needs to collect all the necessary data from the other apis
-    const allProductData = associatedProductNumbers.map(async (productNumber) => {
-      try {
-        const titleInfo = await axios.get(`/title/?product_id=${productNumber}`)
-        const inventoryInfo = await axios.get(`/inventory/?product_id=${productNumber}`)
-        const iconInfo = await axios.get(`overview/icons/?product_id=${productNumber}`)
-        const imagesInfo = await axios.get(`/images/mainImages/?product_id=${productNumber}`)
-      } catch (err) {
-        console.log('ERROR INSIDE CATCH BLOCK OF SERVER DISTRIBUTION: ', err)
-      }
-    })
+    const allProductData = async () => {
 
-    console.log('ALL PRODUCT DATA:', allProductData)
+      return Promise.all(associatedProductNumbers.map(async (productNumber) => {
+        try {
+          const titleInfo = await axios.get(`/title/?product_id=${productNumber}`)
+          const inventoryInfo = await axios.get(`/inventory/?product_id=${productNumber}`)
+          const iconInfo = await axios.get(`overview/icons/?product_id=${productNumber}`)
+          const imagesInfo = await axios.get(`/images/mainImages/?product_id=${productNumber}`)
+        } catch (err) {
+          console.log('ERROR INSIDE CATCH BLOCK OF SERVER DISTRIBUTION: ', err)
+        }
+      }))
+    }
+
+    allProductData().then(data => console.log("RETURNED DATA: ", data))
   } catch (error) {
     console.log('ERROR IN SERVER: ', error)
   }
@@ -34,23 +38,23 @@ app.get('/similar', async (req, res) => {
 })
 
 app.get('/title/', (req, res) => {
-  // res.send(mockTitleData)
+  // res.send(mockData.mockTitleData)
   console.log('HIT TITLE API')
-  res.send(200)
+  res.send('SUCCESS IN TITLE API')
 })
 
 app.get('/inventory/', (req, res) => {
-    // res.send(mockInventoryData)
+    // res.send(mockData.mockInventoryData)
     res.send(200)
 })
 
 app.get('overview/icons/', (req, res) => {
-  // res.send(mockIconData)
+  // res.send(mockData.mockIconData)
   res.send(200)
 })
 
 app.get('/images/mainImages/', (req, res) => {
-    // res.send(mockImageData)
+    // res.send(mockData.mockImageData)
     res.send(200)
 })
 
