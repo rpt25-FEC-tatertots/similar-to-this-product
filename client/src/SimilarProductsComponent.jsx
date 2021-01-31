@@ -44,6 +44,16 @@ class SimilarProductsComponent extends React.Component {
       startingIndex: 0,
       endingIndex: 4
     }
+    this.leftButtonClick = this.leftButtonClick.bind(this);
+    this.rightButtonClick = this.rightButtonClick.bind(this);
+  }
+
+  leftButtonClick() {
+    console.log('CLICKED LEFT BUTTON')
+  }
+
+  rightButtonClick() {
+    console.log('CLICKED RIGHT BUTTON')
   }
 
   componentDidMount() {
@@ -77,9 +87,9 @@ class SimilarProductsComponent extends React.Component {
       <div>
         <StyledTitle>Similar to this Product</StyledTitle>
         <SliderContainer>
-          <SliderButton>{'<'}</SliderButton>
+          <SliderButton onClick={this.leftButtonClick}>{'<'}</SliderButton>
           {cards}
-          <SliderButton>{'>'}</SliderButton>
+          <SliderButton onClick={this.rightButtonClick}>{'>'}</SliderButton>
         </SliderContainer>
         </div>
     )
