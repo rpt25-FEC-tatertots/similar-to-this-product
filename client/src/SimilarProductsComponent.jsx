@@ -10,13 +10,9 @@ const StyledTitle = styled.h2`
   font-size: 2.4rem;
 `;
 
-const SimilarProductsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 const SliderContainer = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-around;
   padding-left: 4rem;
   padding-right: 4rem;
@@ -44,7 +40,9 @@ class SimilarProductsComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      carouselContent: []
+      carouselContent: [],
+      startingIndex: 0,
+      endingIndex: 4
     }
   }
 
@@ -60,7 +58,10 @@ class SimilarProductsComponent extends React.Component {
   }
 
   render() {
-    const cards = this.state.carouselContent.map((product, index) => {
+    const {carouselContent, startingIndex, endingIndex} = this.state;
+    const sliceOfContent = carouselContent.slice(startingIndex, endingIndex)
+
+    const cards = sliceOfContent.map((product, index) => {
       const {mockImageData, mockInventoryData, mockTitleData} = product
       return (
         <SliderCard
@@ -71,15 +72,16 @@ class SimilarProductsComponent extends React.Component {
         />
       )
     })
+
     return (
-      <SimilarProductsContainer>
+      <div>
         <StyledTitle>Similar to this Product</StyledTitle>
         <SliderContainer>
           <SliderButton>{'<'}</SliderButton>
           {cards}
           <SliderButton>{'>'}</SliderButton>
         </SliderContainer>
-      </SimilarProductsContainer>
+        </div>
     )
   }
 };

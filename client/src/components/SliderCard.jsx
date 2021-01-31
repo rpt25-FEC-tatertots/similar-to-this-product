@@ -8,7 +8,7 @@ const StyledCard = styled.div`
   justify-content: center;
   background-color: #f5f5f5;
   height: auto;
-  width: 200px;
+  width: 25%;
   border-style: none;
   border-radius: 1rem;
   sizes: 723px;
