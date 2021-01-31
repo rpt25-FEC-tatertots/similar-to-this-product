@@ -33,7 +33,7 @@ class SliderCard extends React.Component {
       <StyledCard>
         <img src={this.props.image[0]}></img>
         <StyledText>{this.props.title}</StyledText>
-        <StyledText>pricing info</StyledText>
+        <StyledText>{this.props.inventory.price}</StyledText>
         <StyledText>icons</StyledText>
       </StyledCard>
       </>
