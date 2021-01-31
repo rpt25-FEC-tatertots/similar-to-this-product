@@ -14,10 +14,10 @@ app.get('/similar', async (req, res) => {
   const { product_id } = req.query;
   try {
     const associatedProductNumbers = await db.getAssociatedProductNums(product_id)
-    //for each productNumber in the array, it needs to collect all the necessary data from the other apis
-    const allProductData = async () => {
-
-      return Promise.all(associatedProductNumbers.map(async (productNumber) => {
+  //for each productNumber in the array, it needs to collect all the necessary data from the other apis
+  //   // [2, 34, 56, 87]
+    const allProductData = associatedProductNumbers.map(async (productNumber) => {
+      console.log('WORKING INSIDE THE MAP');
         try {
           const titleInfo = await axios.get(`/title/?product_id=${productNumber}`)
           const inventoryInfo = await axios.get(`/inventory/?product_id=${productNumber}`)
@@ -26,15 +26,15 @@ app.get('/similar', async (req, res) => {
         } catch (err) {
           console.log('ERROR INSIDE CATCH BLOCK OF SERVER DISTRIBUTION: ', err)
         }
-      }))
+      })
+      Promise.all(allProductData).then(response => {
+        console.log('RESPONSE', response)
+      })
+    } catch (error) {
+      console.log('ERROR IN SERVER: ', error)
     }
-
-    allProductData().then(data => console.log("RETURNED DATA: ", data))
-  } catch (error) {
-    console.log('ERROR IN SERVER: ', error)
-  }
   //needs to then send all this information back to be rendered
-  // res.send(200)
+  res.send(200)
 })
 
 app.get('/title/', (req, res) => {
