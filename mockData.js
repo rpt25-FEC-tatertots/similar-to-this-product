@@ -17,7 +17,8 @@ const mockData = [
       Colors: {
         industrialGreen: '546B3F',
         bleachedStone: 'C9B491'
-      }
+      },
+      price: '$55'
     }
   },
   {
@@ -36,7 +37,8 @@ const mockData = [
       Colors: {
         industrialGreen: '546B3F',
         bleachedStone: 'C9B491'
-      }
+      },
+      price: '$75'
     }
   },
   {
@@ -55,7 +57,8 @@ const mockData = [
       Colors: {
         industrialGreen: '546B3F',
         bleachedStone: 'C9B491'
-      }
+      },
+      price: '$588'
     }
   },
   {
@@ -74,7 +77,8 @@ const mockData = [
       Colors: {
         industrialGreen: '546B3F',
         bleachedStone: 'C9B491'
-      }
+      },
+      price: '$122'
     }
   },
   {
@@ -93,7 +97,8 @@ const mockData = [
       Colors: {
         industrialGreen: '546B3F',
         bleachedStone: 'C9B491'
-      }
+      },
+      price: '$654'
     }
   },
   {
@@ -112,7 +117,8 @@ const mockData = [
       Colors: {
         industrialGreen: '546B3F',
         bleachedStone: 'C9B491'
-      }
+      },
+      price: '$88'
     }
   },
   {
@@ -131,7 +137,8 @@ const mockData = [
       Colors: {
         industrialGreen: '546B3F',
         bleachedStone: 'C9B491'
-      }
+      },
+      price: '$895'
     }
   },
   {
@@ -150,7 +157,8 @@ const mockData = [
       Colors: {
         industrialGreen: '546B3F',
         bleachedStone: 'C9B491'
-      }
+      },
+      price: '$65'
     }
   },
   {
@@ -169,7 +177,8 @@ const mockData = [
       Colors: {
         industrialGreen: '546B3F',
         bleachedStone: 'C9B491'
-      }
+      },
+      price: '$87'
     }
   },
 ]

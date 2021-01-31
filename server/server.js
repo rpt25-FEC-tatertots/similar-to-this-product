@@ -43,5 +43,5 @@ app.get('/similar', async (req, res) => {
 // })
 
 app.listen(6008, function () {
-  console.log('listening on port 3000!');
+  console.log('listening on port 6008!');
 })
