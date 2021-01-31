@@ -28,16 +28,31 @@ const SliderContainer = styled.div`
   height: auto;
 `;
 
+const SliderButton = styled.button`
+  border-style: normal;
+  border-color: black;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  font-family: Nunito Sans;
+  font-weight: 700;
+  font-size: 1.2rem;
+  align-items: center;
+`;
+
 class SimilarProductsComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      carouselContent: []
+    }
   }
 
   componentDidMount() {
     axios.get(`/similar?product_id=${2}`)
       .then(response => {
         console.log('RESPONSE FROM SERVER ON THE CLIENT: ', response.data)
+        this.setState({carouselContent: response.data})
       })
       .catch(err => {
         console.log('ERROR ON THE CLIENT AFTER GET REQUEST: ', err)
@@ -45,15 +60,24 @@ class SimilarProductsComponent extends React.Component {
   }
 
   render() {
+    const cards = this.state.carouselContent.map((product, index) => {
+      const {mockImageData, mockInventoryData, mockTitleData} = product
+      return (
+        <SliderCard
+        key={index}
+        image={mockImageData.main_images}
+        title={mockTitleData.title}
+        inventory={mockInventoryData}
+        />
+      )
+    })
     return (
       <SimilarProductsContainer>
         <StyledTitle>Similar to this Product</StyledTitle>
         <SliderContainer>
-          <SliderCard/>
-          <SliderCard/>
-          <SliderCard/>
-          <SliderCard/>
-          <SliderCard/>
+          <SliderButton>{'<'}</SliderButton>
+          {cards}
+          <SliderButton>{'>'}</SliderButton>
         </SliderContainer>
       </SimilarProductsContainer>
     )
