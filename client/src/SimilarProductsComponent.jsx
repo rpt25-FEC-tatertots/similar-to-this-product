@@ -48,12 +48,10 @@ class SimilarProductsComponent extends React.Component {
   }
 
   leftButtonClick() {
-    console.log('CLICKED LEFT BUTTON')
     this.setState({startingIndex: this.state.startingIndex-1})
   }
 
   rightButtonClick() {
-    console.log('CLICKED RIGHT BUTTON')
     this.setState({startingIndex: this.state.startingIndex+1})
   }
 
@@ -70,6 +68,8 @@ class SimilarProductsComponent extends React.Component {
 
   render() {
     const {carouselContent, startingIndex} = this.state;
+    let scrollLeftButton;
+    let scrollRightButton;
     const sliceOfContent = carouselContent.slice(startingIndex, startingIndex+4)
 
     const cards = sliceOfContent.map((product, index) => {
@@ -84,13 +84,23 @@ class SimilarProductsComponent extends React.Component {
       )
     })
 
+    if(startingIndex > 0) {
+      scrollLeftButton = <SliderButton onClick={this.leftButtonClick}>{'<'}</SliderButton>
+    }
+
+    if((startingIndex+4) < carouselContent.length) {
+      scrollRightButton = <SliderButton onClick={this.rightButtonClick}>{'>'}</SliderButton>
+    }
+
+
+
     return (
       <div>
         <StyledTitle>Similar to this Product</StyledTitle>
         <SliderContainer>
-          <SliderButton onClick={this.leftButtonClick}>{'<'}</SliderButton>
+          {scrollLeftButton}
           {cards}
-          <SliderButton onClick={this.rightButtonClick}>{'>'}</SliderButton>
+          {scrollRightButton}
         </SliderContainer>
         </div>
     )
