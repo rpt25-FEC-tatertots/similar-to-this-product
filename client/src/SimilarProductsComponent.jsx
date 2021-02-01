@@ -41,8 +41,7 @@ class SimilarProductsComponent extends React.Component {
     super(props);
     this.state = {
       carouselContent: [],
-      startingIndex: 0,
-      endingIndex: 4
+      startingIndex: 0
     }
     this.leftButtonClick = this.leftButtonClick.bind(this);
     this.rightButtonClick = this.rightButtonClick.bind(this);
@@ -50,10 +49,12 @@ class SimilarProductsComponent extends React.Component {
 
   leftButtonClick() {
     console.log('CLICKED LEFT BUTTON')
+    this.setState({startingIndex: this.state.startingIndex-1})
   }
 
   rightButtonClick() {
     console.log('CLICKED RIGHT BUTTON')
+    this.setState({startingIndex: this.state.startingIndex+1})
   }
 
   componentDidMount() {
@@ -68,8 +69,8 @@ class SimilarProductsComponent extends React.Component {
   }
 
   render() {
-    const {carouselContent, startingIndex, endingIndex} = this.state;
-    const sliceOfContent = carouselContent.slice(startingIndex, endingIndex)
+    const {carouselContent, startingIndex} = this.state;
+    const sliceOfContent = carouselContent.slice(startingIndex, startingIndex+4)
 
     const cards = sliceOfContent.map((product, index) => {
       const {mockImageData, mockInventoryData, mockTitleData} = product
