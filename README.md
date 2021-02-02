@@ -37,3 +37,16 @@ npm install -g webpack
 npm install
 ```
 
+//DIRECTIONS START HERE
+-After installing dependencies,
+  -start up the server by running "npm run start-dev"
+    -if you get this message in the server terminal:
+      "listening on port 5008!
+       CONNECTION TO DATABASE SUCCESSFUL"
+      -then go ahead and seed the database by running "npm run seed-database"
+    -if you don't get the "connection has been established successfully" message:
+      -run the "database/schema.js" file in node
+      -confirm you have gotten the "connection successful" message in the server terminal, then seed the database by running "npm run seed-database"
+
+-when incorporating this into your proxy:
+  -in your proxy's express server, provide an "app.get" endpoint called "/similar", which should direct a request to this repo's express server.
