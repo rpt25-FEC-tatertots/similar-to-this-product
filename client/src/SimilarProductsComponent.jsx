@@ -56,7 +56,8 @@ class SimilarProductsComponent extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/similar?product_id=${2}`)
+    const id = window.location.pathname;
+    axios.get(`/similar${id}`)
       .then(response => {
         console.log('RESPONSE FROM SERVER ON THE CLIENT: ', response.data)
         this.setState({carouselContent: response.data})

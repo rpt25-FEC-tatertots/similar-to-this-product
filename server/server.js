@@ -6,12 +6,12 @@ const axios = require('axios');
 const app = express();
 
 // app.use('/:product_id', express.static('./public/dist'));
-app.use(express.static('./public/dist'));
+app.use('/:product_id', express.static('./public/dist'));
 app.use(express.urlencoded());
 app.use(express.json());
 
-app.get('/similar', async (req, res) => {
-  const { product_id } = req.query;
+app.get('/similar/:product_id', async (req, res) => {
+  const { product_id } = req.params;
   try {
     const associatedProductNumbers = await db.getAssociatedProductNums(product_id)
     } catch (error) {
