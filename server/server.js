@@ -14,6 +14,9 @@ app.get('/similar/:product_id', async (req, res) => {
   const { product_id } = req.params;
   try {
     const associatedProductNumbers = await db.getAssociatedProductNums(product_id)
+    // this sends a request through the proxy to the Overviews service to get overview icon information
+    const { data } = await axios.get(`http://localhost:5000/overview/${product_id}`)
+    console.log('OVERVIEW RESPONSE', data.icons)
     } catch (error) {
       console.log('ERROR IN SERVER: ', error)
     }
