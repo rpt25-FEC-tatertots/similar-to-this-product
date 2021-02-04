@@ -49,4 +49,5 @@ npm install
       -confirm you have gotten the "connection successful" message in the server terminal, then seed the database by running "npm run seed-database"
 
 -when incorporating this into your proxy:
+  -in the most parent React Component (SimilarProductsComponent.jsx) of this service, you will see "reactDOM.render" at the bottom. This service needs to be rendered to a div in your index.html file called "similar"
   -in your proxy's express server, provide an "app.get" endpoint called "/similar", which should direct a request to this repo's express server.
