@@ -20,6 +20,7 @@ app.get('/similar/:product_id', async (req, res) => {
       // const imagesData = await axios.get(`http://localhost:5000/images/mainImages/${productNum}`)
       // const inventoryData = await axios.get(`http://localhost:5000/inventory/${productNum}`)
       return {
+        product_id: titleData.data.productID,
         iconsInfo: overviewData.data.icons,
         titleInfo: titleData.data,
         // imagesInfo: imagesData.data,
@@ -29,6 +30,7 @@ app.get('/similar/:product_id', async (req, res) => {
     })
     )
     console.log('ALL INFO 🥁🥁🥁🥁🥁🥁🥁', allInfo)
+    // res.send(allInfo)
     } catch (error) {
       console.log('ERROR IN SERVER: ', error)
     }
