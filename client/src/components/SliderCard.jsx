@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
-const StyledCard = styled.div`
+const StyledCard = styled.a`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,12 +30,12 @@ class SliderCard extends React.Component {
   render() {
     return (
       <>
-      <StyledCard>
-        <img src={this.props.image[0]}></img>
-        <StyledText>{this.props.title}</StyledText>
-        <StyledText>{this.props.inventory.price}</StyledText>
-        <StyledText>icons</StyledText>
-      </StyledCard>
+        <StyledCard href={`http://localhost:5000/${this.props.product_id}`}>
+          <img src={this.props.image[0]}></img>
+          <StyledText>{this.props.title}</StyledText>
+          <StyledText>{this.props.inventory.price}</StyledText>
+          <StyledText>icons</StyledText>
+        </StyledCard>
       </>
     )
   }

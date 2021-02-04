@@ -74,10 +74,11 @@ class SimilarProductsComponent extends React.Component {
     const sliceOfContent = carouselContent.slice(startingIndex, startingIndex+4)
 
     const cards = sliceOfContent.map((product, index) => {
-      const {mockImageData, mockInventoryData, mockTitleData} = product
+      const {mockImageData, mockInventoryData, mockTitleData, product_id} = product
       return (
         <SliderCard
-        key={index}
+        key={product_id}
+        product_id={product_id}
         image={mockImageData.main_images}
         title={mockTitleData.title}
         inventory={mockInventoryData}
