@@ -15,8 +15,17 @@ app.get('/similar/:product_id', async (req, res) => {
   try {
     const associatedProductNumbers = await db.getAssociatedProductNums(product_id)
     const allInfo = await Promise.all(associatedProductNumbers.map(async (productNum) => {
-      const { data } = await axios.get(`http://localhost:5000/overview/${productNum}`)
-      return data.icons;
+      const overviewData = await axios.get(`http://localhost:5000/overview/${productNum}`)
+      const titleData = await axios.get(`http://localhost:5000/title/${productNum}`)
+      // const imagesData = await axios.get(`http://localhost:5000/images/mainImages/${productNum}`)
+      // const inventoryData = await axios.get(`http://localhost:5000/inventory/${productNum}`)
+      return {
+        iconsInfo: overviewData.data.icons,
+        titleInfo: titleData.data,
+        // imagesInfo: imagesData.data,
+        // inventoryInfo: inventoryData.data
+      };
+
     })
     )
     console.log('ALL INFO 🥁🥁🥁🥁🥁🥁🥁', allInfo)
