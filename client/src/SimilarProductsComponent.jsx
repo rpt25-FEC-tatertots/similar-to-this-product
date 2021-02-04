@@ -16,6 +16,7 @@ const SliderContainer = styled.div`
   justify-content: space-around;
   padding-left: 4rem;
   padding-right: 4rem;
+  padding-bottom: 6rem;
   background-color: transparent;
   position: relative;
   font-family: Nunito Sans;
@@ -94,8 +95,6 @@ class SimilarProductsComponent extends React.Component {
       scrollRightButton = <SliderButton onClick={this.rightButtonClick}>{'>'}</SliderButton>
     }
 
-
-
     return (
       <div>
         <StyledTitle>Similar to this Product</StyledTitle>
@@ -104,7 +103,7 @@ class SimilarProductsComponent extends React.Component {
           {cards}
           {scrollRightButton}
         </SliderContainer>
-        </div>
+      </div>
     )
   }
 };
