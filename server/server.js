@@ -14,6 +14,7 @@ app.use(express.json());
 
 app.get('/similar/:product_id', async (req, res) => {
   const { product_id } = req.params;
+  res.send(mockData)
   try {
     const associatedProductNumbers = await db.getAssociatedProductNums(product_id)
     // const allInfo = await Promise.all(associatedProductNumbers.map(async (productNum) => {
