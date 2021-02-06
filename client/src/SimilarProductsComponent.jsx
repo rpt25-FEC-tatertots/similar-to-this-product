@@ -25,7 +25,6 @@ const SliderButton = styled.button`
   border-style: none;
   border-color: transparent;
   border-radius: 50%;
-  padding: 5px;
   background-color: white;
   color: black;
   font-family: Nunito Sans;
