@@ -108,5 +108,4 @@ class SimilarProductsComponent extends React.Component {
   }
 };
 
-
 ReactDOM.render(<SimilarProductsComponent />, document.getElementById('similar'));
