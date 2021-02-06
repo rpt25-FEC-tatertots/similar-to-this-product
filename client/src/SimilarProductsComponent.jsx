@@ -8,6 +8,7 @@ const StyledTitle = styled.h2`
   font-family: Nunito Sans;
   font-weight: 700;
   font-size: 2.4rem;
+  padding-left: 4rem;
 `;
 
 const SliderContainer = styled.div`
@@ -21,15 +22,21 @@ const SliderContainer = styled.div`
 `;
 
 const SliderButton = styled.button`
-  border-style: normal;
-  border-color: black;
+  border-style: none;
+  border-color: transparent;
   border-radius: 50%;
+  padding: 5px;
   background-color: white;
   color: black;
   font-family: Nunito Sans;
   font-weight: 700;
   font-size: 1.2rem;
-  align-items: center;
+  align-self: center;
+  position: absolute;
+  z-index: 10;
+  box-shadow: 0px 10px 15px #888888;
+  height: 50px;
+  width: 50px;
 `;
 
 class SimilarProductsComponent extends React.Component {
