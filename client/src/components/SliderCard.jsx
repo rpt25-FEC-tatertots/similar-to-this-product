@@ -13,8 +13,8 @@ const StyledCard = styled.div`
     "title"
     "pricing"
     "icons";
-  margin: 10px;
   width: 350px;
+  margin: 1%;
 `;
 
 const CardPictureStyle = styled.div`
