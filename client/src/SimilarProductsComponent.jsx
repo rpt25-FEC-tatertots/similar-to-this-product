@@ -12,16 +12,12 @@ const StyledTitle = styled.h2`
 
 const SliderContainer = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  overflow-x: visible;
   padding-left: 4rem;
   padding-right: 4rem;
   background-color: transparent;
   position: relative;
-  font-family: Nunito Sans;
-  font-weight: 400;
-  font-size: 1.2rem;
-  height: auto;
+  height: 500px;
 `;
 
 const SliderButton = styled.button`
@@ -71,9 +67,8 @@ class SimilarProductsComponent extends React.Component {
     const {carouselContent, startingIndex} = this.state;
     let scrollLeftButton;
     let scrollRightButton;
-    const sliceOfContent = carouselContent.slice(startingIndex, startingIndex+4)
 
-    const cards = sliceOfContent.map((product, index) => {
+    const cards = carouselContent.map((product, index) => {
       const {mockImageData, mockInventoryData, mockTitleData} = product
       return (
         <SliderCard
