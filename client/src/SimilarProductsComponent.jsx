@@ -8,32 +8,34 @@ const StyledTitle = styled.h2`
   font-family: Nunito Sans;
   font-weight: 700;
   font-size: 2.4rem;
+  padding-left: 4rem;
 `;
 
 const SliderContainer = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  overflow-x: auto;
   padding-left: 4rem;
   padding-right: 4rem;
   background-color: transparent;
   position: relative;
-  font-family: Nunito Sans;
-  font-weight: 400;
-  font-size: 1.2rem;
-  height: auto;
+  height: 500px;
 `;
 
 const SliderButton = styled.button`
-  border-style: normal;
-  border-color: black;
+  border-style: none;
+  border-color: transparent;
   border-radius: 50%;
   background-color: white;
   color: black;
   font-family: Nunito Sans;
   font-weight: 700;
   font-size: 1.2rem;
-  align-items: center;
+  align-self: center;
+  position: absolute;
+  z-index: 10;
+  box-shadow: 0px 10px 15px #888888;
+  height: 50px;
+  width: 50px;
 `;
 
 class SimilarProductsComponent extends React.Component {
@@ -71,13 +73,13 @@ class SimilarProductsComponent extends React.Component {
     const {carouselContent, startingIndex} = this.state;
     let scrollLeftButton;
     let scrollRightButton;
-    const sliceOfContent = carouselContent.slice(startingIndex, startingIndex+4)
 
-    const cards = sliceOfContent.map((product, index) => {
-      const {mockImageData, mockInventoryData, mockTitleData} = product
+    const cards = carouselContent.map((product, index) => {
+      const {mockImageData, mockInventoryData, mockTitleData, product_id} = product
       return (
         <SliderCard
         key={index}
+        productID={product_id}
         image={mockImageData.main_images}
         title={mockTitleData.title}
         inventory={mockInventoryData}
