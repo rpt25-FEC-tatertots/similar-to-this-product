@@ -13,7 +13,7 @@ const StyledTitle = styled.h2`
 
 const SliderContainer = styled.div`
   display: flex;
-  overflow-x: visible;
+  overflow-x: auto;
   padding-left: 4rem;
   padding-right: 4rem;
   background-color: transparent;
@@ -75,10 +75,11 @@ class SimilarProductsComponent extends React.Component {
     let scrollRightButton;
 
     const cards = carouselContent.map((product, index) => {
-      const {mockImageData, mockInventoryData, mockTitleData} = product
+      const {mockImageData, mockInventoryData, mockTitleData, product_id} = product
       return (
         <SliderCard
         key={index}
+        productID={product_id}
         image={mockImageData.main_images}
         title={mockTitleData.title}
         inventory={mockInventoryData}

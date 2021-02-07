@@ -64,7 +64,7 @@ class SliderCard extends React.Component {
   render() {
     return (
       <>
-      <StyledCard>
+      <StyledCard href={`http://localhost:5000/${this.props.productID}`}>
         <CardPictureStyle >
           <StyleImg src={this.props.image[0]} />
         </CardPictureStyle>
