@@ -15,7 +15,6 @@ const StyledCard = styled.div`
     "icons";
   width: 350px;
   margin: 1%;
-  max-height: fit-content;
 `;
 
 const CardPictureStyle = styled.div`
