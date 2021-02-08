@@ -13,7 +13,7 @@ const StyledTitle = styled.h2`
 
 const SliderContainer = styled.div`
   display: flex;
-  overflow-x: auto;
+  overflow: hidden;
   padding-left: 4rem;
   padding-right: 4rem;
   background-color: transparent;

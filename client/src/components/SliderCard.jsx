@@ -15,6 +15,7 @@ const StyledCard = styled.div`
     "icons";
   width: 350px;
   margin: 1%;
+  max-height: fit-content;
 `;
 
 const CardPictureStyle = styled.div`
@@ -54,6 +55,16 @@ const CardIconsStyle = styled.div`
   font-size: 1rem;
 `;
 
+const StyledCardLink = styled.a`
+  position: absolute;
+  z-index: 50;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+`;
+
 class SliderCard extends React.Component {
   constructor(props) {
     super(props);
@@ -64,14 +75,16 @@ class SliderCard extends React.Component {
   render() {
     return (
       <>
-      <StyledCard href={`http://localhost:5000/${this.props.productID}`}>
-        <CardPictureStyle >
-          <StyleImg src={this.props.image[0]} />
-        </CardPictureStyle>
-        <CardTitleStyle>{this.props.title}</CardTitleStyle>
-        <CardPricingStyle>{this.props.inventory.price}</CardPricingStyle>
-        <CardIconsStyle>icons</CardIconsStyle>
-      </StyledCard>
+        <StyledCard >
+          <a href={`http://localhost:5008/${this.props.productID}`}>
+          <CardPictureStyle >
+            <StyleImg src={this.props.image[0]} />
+          </CardPictureStyle>
+          <CardTitleStyle>{this.props.title}</CardTitleStyle>
+          <CardPricingStyle>{this.props.inventory.price}</CardPricingStyle>
+          <CardIconsStyle>icons</CardIconsStyle>
+          </a>
+        </StyledCard>
       </>
     )
   }
