@@ -93,8 +93,8 @@ class SimilarProductsComponent extends React.Component {
     const {carouselContent, startingIndex} = this.state;
     let scrollLeftButton;
     let scrollRightButton;
-
-    const cards = carouselContent.map((product, index) => {
+    const sliceOfContent = carouselContent.slice(startingIndex, startingIndex+4)
+    const cards = sliceOfContent.map((product, index) => {
       const {mockImageData, mockInventoryData, mockTitleData, product_id} = product
       return (
         <SliderCard
