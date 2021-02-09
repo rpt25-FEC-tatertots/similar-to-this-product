@@ -1,66 +1,66 @@
 //need mock data for: title, inventory, icons, images
 
 const mockData = [
-  {
-    product_id: 35,
-    mockTitleData: {
-      product_id: 35,
-      title: "Men's Classic Synchilla® Fleece Vest",
-      category: "Men’s Fleece"
-    },
-    mockImageData: {
-      product_id: 35,
-      main_images: ['https://www.patagonia.com/dw/image/v2/BDJB_PRD/on/demandware.static/-/Sites-patagonia-master/default/dwc052f874/images/hi-res/86210_BLK_OM1.jpg?sw=800&sh=800&sfrm=png&q=95&bgcolor=f6f6f6']
-    },
-    mockInventoryData: {
-      productID: 35,
-      Colors: {
-        industrialGreen: '546B3F',
-        bleachedStone: 'C9B491'
-      },
-      price: '$55'
-    }
-  },
-  {
-    product_id: 15,
-    mockTitleData: {
-      product_id: 15,
-      title: 'Title for Product 15',
-      category: 'Category for Product 15'
-    },
-    mockImageData: {
-      product_id: 15,
-      main_images: ['https://www.patagonia.com/dw/image/v2/BDJB_PRD/on/demandware.static/-/Sites-patagonia-master/default/dw3be464ca/images/hi-res/85350_FRE_AH1.jpg?sw=800&sh=800&sfrm=png&q=95&bgcolor=f6f6f6']
-    },
-    mockInventoryData: {
-      productID: 15,
-      Colors: {
-        industrialGreen: '546B3F',
-        bleachedStone: 'C9B491'
-      },
-      price: '$75'
-    }
-  },
-  {
-    product_id: 22,
-    mockTitleData: {
-      product_id: 22,
-      title: 'Title for Product 22',
-      category: 'Category for Product 22'
-    },
-    mockImageData: {
-      product_id: 22,
-      main_images: ['https://www.patagonia.com/dw/image/v2/BDJB_PRD/on/demandware.static/-/Sites-patagonia-master/default/dw44ad31c3/images/hi-res/48380_COI_MR2.jpg?sw=800&sh=800&sfrm=png&q=95&bgcolor=f6f6f6']
-    },
-    mockInventoryData: {
-      productID: 22,
-      Colors: {
-        industrialGreen: '546B3F',
-        bleachedStone: 'C9B491'
-      },
-      price: '$588'
-    }
-  },
+  // {
+  //   product_id: 35,
+  //   mockTitleData: {
+  //     product_id: 35,
+  //     title: "Men's Classic Synchilla® Fleece Vest",
+  //     category: "Men’s Fleece"
+  //   },
+  //   mockImageData: {
+  //     product_id: 35,
+  //     main_images: ['https://www.patagonia.com/dw/image/v2/BDJB_PRD/on/demandware.static/-/Sites-patagonia-master/default/dwc052f874/images/hi-res/86210_BLK_OM1.jpg?sw=800&sh=800&sfrm=png&q=95&bgcolor=f6f6f6']
+  //   },
+  //   mockInventoryData: {
+  //     productID: 35,
+  //     Colors: {
+  //       industrialGreen: '546B3F',
+  //       bleachedStone: 'C9B491'
+  //     },
+  //     price: '$55'
+  //   }
+  // },
+  // {
+  //   product_id: 15,
+  //   mockTitleData: {
+  //     product_id: 15,
+  //     title: 'Title for Product 15',
+  //     category: 'Category for Product 15'
+  //   },
+  //   mockImageData: {
+  //     product_id: 15,
+  //     main_images: ['https://www.patagonia.com/dw/image/v2/BDJB_PRD/on/demandware.static/-/Sites-patagonia-master/default/dw3be464ca/images/hi-res/85350_FRE_AH1.jpg?sw=800&sh=800&sfrm=png&q=95&bgcolor=f6f6f6']
+  //   },
+  //   mockInventoryData: {
+  //     productID: 15,
+  //     Colors: {
+  //       industrialGreen: '546B3F',
+  //       bleachedStone: 'C9B491'
+  //     },
+  //     price: '$75'
+  //   }
+  // },
+  // {
+  //   product_id: 22,
+  //   mockTitleData: {
+  //     product_id: 22,
+  //     title: 'Title for Product 22',
+  //     category: 'Category for Product 22'
+  //   },
+  //   mockImageData: {
+  //     product_id: 22,
+  //     main_images: ['https://www.patagonia.com/dw/image/v2/BDJB_PRD/on/demandware.static/-/Sites-patagonia-master/default/dw44ad31c3/images/hi-res/48380_COI_MR2.jpg?sw=800&sh=800&sfrm=png&q=95&bgcolor=f6f6f6']
+  //   },
+  //   mockInventoryData: {
+  //     productID: 22,
+  //     Colors: {
+  //       industrialGreen: '546B3F',
+  //       bleachedStone: 'C9B491'
+  //     },
+  //     price: '$588'
+  //   }
+  // },
   {
     product_id: 31,
     mockTitleData: {

@@ -13,15 +13,13 @@ const StyledTitle = styled.h2`
 
 const SliderContainer = styled.div`
   display: flex;
-  overflow-x: auto;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  overflow: hidden;
   background-color: transparent;
   position: relative;
   height: 500px;
 `;
 
-const SliderButton = styled.button`
+const LeftButton = styled.button`
   border-style: none;
   border-color: transparent;
   border-radius: 50%;
@@ -32,10 +30,30 @@ const SliderButton = styled.button`
   font-size: 1.2rem;
   align-self: center;
   position: absolute;
+  left: 10px;
   z-index: 10;
   box-shadow: 0px 10px 15px #888888;
   height: 50px;
   width: 50px;
+`;
+
+const RightButton = styled.button`
+  border-style: none;
+  border-color: transparent;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  font-family: Nunito Sans;
+  font-weight: 700;
+  font-size: 1.2rem;
+  align-self: center;
+  position: absolute;
+  right: 10px;
+  z-index: 10;
+  box-shadow: 0px 10px 15px #888888;
+  height: 50px;
+  width: 50px;
+  padding: 0px;
 `;
 
 class SimilarProductsComponent extends React.Component {
@@ -73,8 +91,8 @@ class SimilarProductsComponent extends React.Component {
     const {carouselContent, startingIndex} = this.state;
     let scrollLeftButton;
     let scrollRightButton;
-
-    const cards = carouselContent.map((product, index) => {
+    const sliceOfContent = carouselContent.slice(startingIndex, startingIndex+4)
+    const cards = sliceOfContent.map((product, index) => {
       const {mockImageData, mockInventoryData, mockTitleData, product_id} = product
       return (
         <SliderCard
@@ -88,11 +106,11 @@ class SimilarProductsComponent extends React.Component {
     })
 
     if(startingIndex > 0) {
-      scrollLeftButton = <SliderButton onClick={this.leftButtonClick}>{'<'}</SliderButton>
+      scrollLeftButton = <LeftButton onClick={this.leftButtonClick}>{'<'}</LeftButton>
     }
 
     if((startingIndex+4) < carouselContent.length) {
-      scrollRightButton = <SliderButton onClick={this.rightButtonClick}>{'>'}</SliderButton>
+      scrollRightButton = <RightButton onClick={this.rightButtonClick}>{'>'}</RightButton>
     }
 
 
