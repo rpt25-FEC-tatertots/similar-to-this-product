@@ -26,10 +26,14 @@ const CardPictureStyle = styled.div`
   border-style: none;
   border-radius: 1rem;
   object-fit: cover;
+
 `;
 
 const StyleImg = styled.img`
   max-width: auto;
+  :hover {
+    transform: scale(1.1)
+  }
 `;
 
 const CardTitleStyle = styled.div`
