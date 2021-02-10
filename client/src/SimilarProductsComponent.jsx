@@ -16,7 +16,7 @@ const SliderContainer = styled.div`
   overflow: hidden;
   background-color: transparent;
   position: relative;
-  height: 500px;
+  max-height: 500px;
 `;
 
 const LeftButton = styled.button`
@@ -96,11 +96,11 @@ class SimilarProductsComponent extends React.Component {
       const {mockImageData, mockInventoryData, mockTitleData, product_id} = product
       return (
         <SliderCard
-        key={index}
-        productID={product_id}
-        image={mockImageData.main_images}
-        title={mockTitleData.title}
-        inventory={mockInventoryData}
+          key={index}
+          productID={product_id}
+          image={mockImageData.main_images}
+          title={mockTitleData.title}
+          inventory={mockInventoryData}
         />
       )
     })

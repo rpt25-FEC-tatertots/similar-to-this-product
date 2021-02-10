@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 const StyledCard = styled.div`
-  flex: 1 0 25%;
+  flex: 1 1 25%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 5fr 1fr 0.5fr 0.5fr;
@@ -74,7 +74,7 @@ class SliderCard extends React.Component {
     return (
       <>
         <StyledCard >
-          <StyledCardLink href={`http://localhost:5008/${this.props.productID}`}>
+          <StyledCardLink href={`/${this.props.productID}`}>
           <CardPictureStyle >
             <StyleImg src={this.props.image[0]} />
           </CardPictureStyle>
