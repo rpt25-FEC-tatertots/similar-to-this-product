@@ -30,7 +30,7 @@ const CardPictureStyle = styled.div`
 `;
 
 const StyleImg = styled.img`
-  max-width: auto;
+  width: 100%;
   :hover {
     transform: scale(1.1)
   }
@@ -59,7 +59,7 @@ const CardIconsStyle = styled.div`
 `;
 
 const StyledCardLink = styled.a`
-
+  color: black;
   text-decoration: none;
 `;
 
@@ -76,11 +76,17 @@ class SliderCard extends React.Component {
         <StyledCard >
           <StyledCardLink href={`/${this.props.productID}`}>
           <CardPictureStyle >
-            <StyleImg src={this.props.image[0]} />
+            <StyleImg src={this.props.image.mainImages[0]} />
           </CardPictureStyle>
-          <CardTitleStyle>{this.props.title}</CardTitleStyle>
-          <CardPricingStyle>{this.props.inventory.price}</CardPricingStyle>
-          <CardIconsStyle>icons</CardIconsStyle>
+          <CardTitleStyle>
+            {this.props.title}
+          </CardTitleStyle>
+          <CardPricingStyle>
+            {this.props.inventory.price}
+          </CardPricingStyle>
+          <CardIconsStyle>
+            icons
+          </CardIconsStyle>
           </StyledCardLink>
         </StyledCard>
       </>

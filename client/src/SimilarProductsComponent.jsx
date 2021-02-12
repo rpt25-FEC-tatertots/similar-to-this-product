@@ -79,7 +79,6 @@ class SimilarProductsComponent extends React.Component {
     const id = window.location.pathname;
     axios.get(`/similar${id}`)
       .then(response => {
-        console.log('RESPONSE FROM SERVER ON THE CLIENT: ', response.data)
         this.setState({carouselContent: response.data})
       })
       .catch(err => {
@@ -93,14 +92,15 @@ class SimilarProductsComponent extends React.Component {
     let scrollRightButton;
     const sliceOfContent = carouselContent.slice(startingIndex, startingIndex+4)
     const cards = sliceOfContent.map((product, index) => {
-      const {mockImageData, mockInventoryData, mockTitleData, product_id} = product
+      const {iconsInfo, imagesInfo, inventoryInfo, titleInfo, product_id} = product
       return (
         <SliderCard
           key={index}
           productID={product_id}
-          image={mockImageData.main_images}
-          title={mockTitleData.title}
-          inventory={mockInventoryData}
+          image={imagesInfo}
+          title={titleInfo.title}
+          inventory={inventoryInfo}
+          icons={iconsInfo}
         />
       )
     })
