@@ -67,6 +67,11 @@ const StyledSmallIconSVG = styled.svg`
   fill: black;
 `;
 
+const StyledNumOfColors = styled.div`
+  color: lightgrey;
+  font-size: 12px;
+`;
+
 class SliderCard extends React.Component {
   constructor(props) {
     super(props);
@@ -76,6 +81,7 @@ class SliderCard extends React.Component {
 
   render() {
     const { image, title, inventory, product_id, icons } = this.props;
+    const numberOfColors = Object.keys(inventory.colors).length;
     const displayIcons = icons.map((icon, index) => {
       return (
         <StyledSmallIconSVG
@@ -106,6 +112,9 @@ class SliderCard extends React.Component {
           </CardPricingStyle>
           <CardIconsStyle>
             {displayIcons}
+            <StyledNumOfColors>
+              {numberOfColors} colors
+            </StyledNumOfColors>
           </CardIconsStyle>
           </StyledCardLink>
         </StyledCard>
