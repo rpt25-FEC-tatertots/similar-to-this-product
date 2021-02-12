@@ -30,7 +30,7 @@ const CardPictureStyle = styled.div`
 `;
 
 const StyleImg = styled.img`
-  max-width: auto;
+  width: 100%;
   :hover {
     transform: scale(1.1)
   }
@@ -59,28 +59,63 @@ const CardIconsStyle = styled.div`
 `;
 
 const StyledCardLink = styled.a`
-
+  color: black;
   text-decoration: none;
+`;
+
+const StyledSmallIconSVG = styled.svg`
+  fill: black;
+`;
+
+const StyledNumOfColors = styled.div`
+  color: lightgrey;
+  font-size: 12px;
 `;
 
 class SliderCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+    }
   }
 
-
   render() {
+    const { image, title, inventory, product_id, icons } = this.props;
+    const numberOfColors = Object.keys(inventory.colors).length;
+    const displayIcons = icons.map((icon, index) => {
+      return (
+        <StyledSmallIconSVG
+          key={index}
+          width="15"
+          heigth="15"
+          viewBox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <path d={icon.icon_svg}/>
+        </StyledSmallIconSVG>
+      )
+    });
+
     return (
       <>
-        <StyledCard >
-          <StyledCardLink href={`/${this.props.productID}`}>
+        <StyledCard>
+          <StyledCardLink href={`/${product_id}`}>
           <CardPictureStyle >
-            <StyleImg src={this.props.image[0]} />
+            <StyleImg src={image.mainImages[0]} />
           </CardPictureStyle>
-          <CardTitleStyle>{this.props.title}</CardTitleStyle>
-          <CardPricingStyle>{this.props.inventory.price}</CardPricingStyle>
-          <CardIconsStyle>icons</CardIconsStyle>
+          <CardTitleStyle>
+            {title}
+          </CardTitleStyle>
+          <CardPricingStyle>
+            {'$'}{inventory.price}
+          </CardPricingStyle>
+          <CardIconsStyle>
+            {displayIcons}
+            <StyledNumOfColors>
+              {numberOfColors} colors
+            </StyledNumOfColors>
+          </CardIconsStyle>
           </StyledCardLink>
         </StyledCard>
       </>

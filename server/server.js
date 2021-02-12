@@ -14,33 +14,27 @@ app.get('/similar/:product_id', async (req, res) => {
   const { product_id } = req.params;
   try {
     const associatedProductNumbers = await db.getAssociatedProductNums(product_id)
+    const allInfo = await Promise.all(associatedProductNumbers.map(async (productNum) => {
+      const overviewData = await axios.get(`http://localhost:5007/overview/${productNum}`)
+      const titleData = await axios.get(`http://localhost:5005/title/${productNum}`)
+      const imagesData = await axios.get(`http://localhost:5003/images/mainImages/${productNum}`)
+      const inventoryData = await axios.get(`http://localhost:5000/inventory/${productNum}`)
+      return {
+        product_id: titleData.data.productID,
+        iconsInfo: overviewData.data.overviewInfo.icons,
+        titleInfo: titleData.data,
+        imagesInfo: imagesData.data,
+        inventoryInfo: inventoryData.data
+      };
+
+    })
+    )
+    res.send(allInfo)
     } catch (error) {
       console.log('ERROR IN SERVER: ', error)
+      res.send(404);
     }
-  // FOR DEV PURPOSES WE ARE JUST SENDING MOCK DATA SO I CAN BUILD OUT A FRONT END THAT WORKS
-  res.send(mockData)
 })
-
-// app.get('/title/', (req, res) => {
-//   // res.send(mockData.mockTitleData)
-//   console.log('HIT TITLE API')
-//   res.send('SUCCESS IN TITLE API')
-// })
-
-// app.get('/inventory/', (req, res) => {
-//     // res.send(mockData.mockInventoryData)
-//     res.send(200)
-// })
-
-// app.get('overview/icons/', (req, res) => {
-//   // res.send(mockData.mockIconData)
-//   res.send(200)
-// })
-
-// app.get('/images/mainImages/', (req, res) => {
-//     // res.send(mockData.mockImageData)
-//     res.send(200)
-// })
 
 app.listen(5008, function () {
   console.log('listening on port 5008!');
