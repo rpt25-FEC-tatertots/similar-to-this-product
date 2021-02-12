@@ -75,9 +75,9 @@ const StyledNumOfColors = styled.div`
 class SliderCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+    }
   }
-
 
   render() {
     const { image, title, inventory, product_id, icons } = this.props;
@@ -99,7 +99,7 @@ class SliderCard extends React.Component {
 
     return (
       <>
-        <StyledCard >
+        <StyledCard>
           <StyledCardLink href={`/${product_id}`}>
           <CardPictureStyle >
             <StyleImg src={image.mainImages[0]} />
