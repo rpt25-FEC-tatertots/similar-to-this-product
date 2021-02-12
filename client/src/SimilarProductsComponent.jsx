@@ -96,7 +96,7 @@ class SimilarProductsComponent extends React.Component {
       return (
         <SliderCard
           key={index}
-          productID={product_id}
+          product_id={product_id}
           image={imagesInfo}
           title={titleInfo.title}
           inventory={inventoryInfo}

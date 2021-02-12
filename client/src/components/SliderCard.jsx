@@ -63,6 +63,10 @@ const StyledCardLink = styled.a`
   text-decoration: none;
 `;
 
+const StyledSmallIconSVG = styled.svg`
+  fill: black;
+`;
+
 class SliderCard extends React.Component {
   constructor(props) {
     super(props);
@@ -71,21 +75,36 @@ class SliderCard extends React.Component {
 
 
   render() {
+    const { image, title, inventory, product_id, icons } = this.props;
+    const displayIcons = icons.map((icon, index) => {
+      return (
+        <StyledSmallIconSVG
+          width="15"
+          heigth="15"
+          viewBox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <path d={icon.icon_svg}/>
+        </StyledSmallIconSVG>
+      )
+    });
+
     return (
       <>
         <StyledCard >
-          <StyledCardLink href={`/${this.props.productID}`}>
+          <StyledCardLink href={`/${product_id}`}>
           <CardPictureStyle >
-            <StyleImg src={this.props.image.mainImages[0]} />
+            <StyleImg src={image.mainImages[0]} />
           </CardPictureStyle>
           <CardTitleStyle>
-            {this.props.title}
+            {title}
           </CardTitleStyle>
           <CardPricingStyle>
-            {this.props.inventory.price}
+            {'$'}{inventory.price}
           </CardPricingStyle>
           <CardIconsStyle>
-            icons
+            {displayIcons}
           </CardIconsStyle>
           </StyledCardLink>
         </StyledCard>
