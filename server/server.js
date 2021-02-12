@@ -29,13 +29,11 @@ app.get('/similar/:product_id', async (req, res) => {
 
     })
     )
-    console.log('ALL INFO 🥁🥁🥁🥁🥁🥁🥁', allInfo)
     res.send(allInfo)
     } catch (error) {
       console.log('ERROR IN SERVER: ', error)
+      res.send(404);
     }
-  // FOR DEV PURPOSES WE ARE JUST SENDING MOCK DATA SO I CAN BUILD OUT A FRONT END THAT WORKS
-  // res.send(mockData)
 })
 
 app.listen(5008, function () {

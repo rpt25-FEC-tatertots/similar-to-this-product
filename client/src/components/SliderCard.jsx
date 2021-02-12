@@ -79,6 +79,7 @@ class SliderCard extends React.Component {
     const displayIcons = icons.map((icon, index) => {
       return (
         <StyledSmallIconSVG
+          key={index}
           width="15"
           heigth="15"
           viewBox="0 0 32 32"
