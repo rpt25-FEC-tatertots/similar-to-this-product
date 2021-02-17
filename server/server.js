@@ -15,13 +15,13 @@ app.get('/similar/:product_id', async (req, res) => {
   try {
     const associatedProductNumbers = await db.getAssociatedProductNums(product_id)
     const allInfo = await Promise.all(associatedProductNumbers.map(async (productNum) => {
-      const overviewData = await axios.get(`http://3.16.235.27:5007/overview/${productNum}`)
+      const overviewData = await axios.get(`http://3.16.235.27:5007/icons/${productNum}`)
       const titleData = await axios.get(`http://54.241.34.87:5005/title/${productNum}`)
       const imagesData = await axios.get(`http://54.241.34.87:5003/images/mainImages/${productNum}`)
       const inventoryData = await axios.get(`http://54.241.34.87:5004/inventory/${productNum}`)
       return {
         product_id: titleData.data.productID,
-        iconsInfo: overviewData.data.overviewInfo.icons,
+        iconsInfo: overviewData.data.icons,
         titleInfo: titleData.data,
         imagesInfo: imagesData.data,
         inventoryInfo: inventoryData.data
