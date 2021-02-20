@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import SliderCard from './components/SliderCard.jsx';
 import styled from 'styled-components';
 import axios from 'axios';
+import defaultStateData from '../../fallbackData.js';
 
 const StyledTitle = styled.h2`
   font-family: Nunito Sans;
@@ -60,7 +61,7 @@ class SimilarProductsComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      carouselContent: [],
+      carouselContent: defaultStateData,
       startingIndex: 0
     }
     this.leftButtonClick = this.leftButtonClick.bind(this);
