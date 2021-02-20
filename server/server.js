@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('../database/schema.js');
 const mockData = require('../mockData.js');
 const axios = require('axios');
+const defaultStateData = require('../fallbackData.js');
 
 const app = express();
 
@@ -31,8 +32,7 @@ app.get('/similar/:product_id', async (req, res) => {
     )
     res.send(allInfo)
     } catch (error) {
-      console.log('ERROR IN SERVER: ', error)
-      res.send(404);
+      res.send(defaultStateData);
     }
 })
 
