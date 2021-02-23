@@ -3,10 +3,10 @@ const db = require('../database/schema.js');
 const mockData = require('../mockData.js');
 const axios = require('axios');
 const defaultStateData = require('../fallbackData.js');
+const compression = require('compression');
 
 const app = express();
-
-// app.use('/:product_id', express.static('./public/dist'));
+app.use(compression());
 app.use('/:product_id', express.static('./public/dist'));
 app.use(express.urlencoded());
 app.use(express.json());
